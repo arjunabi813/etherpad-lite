@@ -93,7 +93,7 @@ const sauceTestWorker = async.queue(async ({name, pfx, browser, version, platfor
 }, 6); // run 6 tests in parrallel
 
 Promise.all([
-  {browser: 'chrome', version: 'latest', platform: 'Windows 10'},
+  {browser: 'chrome', version: 'latest', platform: 'Windows 11'},
   ...(isAdminRunner ? [] : [
     {browser: 'safari', version: 'latest', platform: 'macOS 11.00'},
     {browser: 'firefox', version: 'latest', platform: 'Windows 10'},
