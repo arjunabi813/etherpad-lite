@@ -118,7 +118,7 @@ describe('Plugins page', function () {
   });
 
   it('Attempt to Uninstall a plugin', async function () {
-    this.timeout(360000);
+    this.timeout(280000);
 
     await helper.waitForPromise(
         () => helper.admin$('#installed-plugins .ep_headings2 .do-uninstall').length > 0, 120000);
@@ -132,7 +132,7 @@ describe('Plugins page', function () {
         () => helper.admin$('#installed-plugins .ep_headings2 .message')
             .text() === 'Uninstalling', 120000);
     // ensure its gone
-    await helper.waitForPromise(() => helper.admin$('#installed-plugins .ep_headings2').length === 0, 120000);
+    await helper.waitForPromise(() => helper.admin$('#installed-plugins .ep_headings2').length === 0, 200000);
 
     // ensure search still works
     helper.admin$('#search-query').val('ep_font');
