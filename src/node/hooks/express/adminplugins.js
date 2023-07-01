@@ -111,7 +111,9 @@ exports.socketio = (hookName, args, cb) => {
     });
 
     socket.on('uninstall', (pluginName) => {
+      console.log('socket.on uninstall called')
       installer.uninstall(pluginName, (err) => {
+        console.log('uninstall callback called', err)
         if (err) console.warn(err.stack || err.toString());
 
         socket.emit('finished:uninstall', {plugin: pluginName, error: err ? err.message : null});

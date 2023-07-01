@@ -135,6 +135,7 @@ $(document).ready(() => {
 
     // uninstall
     $('.do-uninstall').unbind('click').click((e) => {
+      console.log("uninstall click handler")
       const $row = $(e.target).closest('tr');
       const pluginName = $row.data('plugin');
       socket.emit('uninstall', pluginName);
@@ -244,6 +245,7 @@ $(document).ready(() => {
   });
 
   socket.on('finished:uninstall', (data) => {
+    console.log("finished uninstall called", data)
     if (data.error) {
       alert(`An error occurred while uninstalling the ${data.plugin} \n${data.error}`);
     }

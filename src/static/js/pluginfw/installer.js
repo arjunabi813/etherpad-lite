@@ -28,6 +28,7 @@ const wrapTaskCb = (cb) => {
 };
 
 exports.uninstall = async (pluginName, cb = null) => {
+  console.log("cb is",cb)
   cb = wrapTaskCb(cb);
   logger.info(`Uninstalling plugin ${pluginName}...`);
   try {
@@ -42,7 +43,9 @@ exports.uninstall = async (pluginName, cb = null) => {
   }
   logger.info(`Successfully uninstalled plugin ${pluginName}`);
   await hooks.aCallAll('pluginUninstall', {pluginName});
+  console.log("before calling update")
   await plugins.update();
+  console.log("after calling update")
   cb(null);
 };
 
