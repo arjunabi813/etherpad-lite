@@ -86,6 +86,8 @@ exports.findEtherpadRoot = () => {
   const findRoot = require('find-root');
   const foundRoot = findRoot(__dirname);
   const splitFoundRoot = foundRoot.split(path.sep);
+  console.log('foundRoot',foundRoot)
+  console.log('splitFoundRoot',splitFoundRoot)
 
   /*
    * On Unix platforms and on Windows manual installs, foundRoot's value will
@@ -94,6 +96,7 @@ exports.findEtherpadRoot = () => {
    *   <BASE_DIR>\src
    */
   let maybeEtherpadRoot = popIfEndsWith(splitFoundRoot, ['src']);
+  console.log('maybeEtherpadRoot',maybeEtherpadRoot)
 
   if ((maybeEtherpadRoot === false) && (process.platform === 'win32')) {
     /*
