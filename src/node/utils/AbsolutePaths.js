@@ -49,7 +49,10 @@ const popIfEndsWith = (stringArray, lastDesiredElements) => {
     return false;
   }
 
+  console.log('stringArray',stringArray)
+  console.log('lastDesiredElements',lastDesiredElements)
   const lastElementsFound = _.last(stringArray, lastDesiredElements.length);
+  console.log('lastElementsFound',lastElementsFound)
 
   if (_.isEqual(lastElementsFound, lastDesiredElements)) {
     return _.initial(stringArray, lastDesiredElements.length);
