@@ -22,9 +22,11 @@ can_connect() {
 }
 now() { date +%s; }
 start=$(now)
-while [ $(($(now) - $start)) -le 15 ] && ! can_connect; do
-    sleep 1
-done
+sleep 10
+connected=true
+#while [ $(($(now) - $start)) -le 15 ] && ! can_connect; do
+#    sleep 1
+#done
 [ "$connected" = true ] \
     || fatal "Timed out waiting for Etherpad to accept connections"
 log "Successfully connected to Etherpad on http://localhost:9001"
