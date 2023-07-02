@@ -47,7 +47,7 @@ jobs:
             src/bin/doc/package-lock.json
       -
         name: install npm
-        run: npm install -g npm@8.0.0
+        run: npm install -g npm@8.1.0
       -
         name: show npm version
         run: npm -v
