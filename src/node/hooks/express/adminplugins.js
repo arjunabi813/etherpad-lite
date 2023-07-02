@@ -7,13 +7,9 @@ const pluginDefs = require('../../../static/js/pluginfw/plugin_defs');
 const plugins = require('../../../static/js/pluginfw/plugins');
 const semver = require('semver');
 const UpdateCheck = require('../../utils/UpdateCheck');
-const runCmd = require('../../utils/run_cmd');
 
 exports.expressCreateServer = (hookName, args, cb) => {
-  args.app.get('/admin/plugins', async (req, res) => {
-    await runCmd(['ls -la']);
-    await runCmd(['ls -la', '..']);
-    await runCmd(['ls -la', '..', '..']);
+  args.app.get('/admin/plugins', (req, res) => {
     res.send(eejs.require('ep_etherpad-lite/templates/admin/plugins.html', {
       plugins: pluginDefs.plugins,
       req,
