@@ -46,6 +46,12 @@ jobs:
             src/package-lock.json
             src/bin/doc/package-lock.json
       -
+        name: install npm
+        run: npm install -g npm@8.0.0
+      -
+        name: show npm version
+        run: npm -v
+      -
         name: Install etherpad plugins
         # We intentionally install an old ep_align version to test upgrades to
         # the minor version number. The --legacy-peer-deps flag is required to
